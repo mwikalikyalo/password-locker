@@ -4,3 +4,5 @@ class Credentials:
     self.page_name = page_name
     self.username = username
     self.password = password 
+  
+  credentials=[]
