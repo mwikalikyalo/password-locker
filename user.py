@@ -1,3 +1,6 @@
+from pip import main
+
+
 class User:
   """ Documents the user login initial details"""
   user_details=[]
@@ -8,12 +11,14 @@ class User:
     self.email = email
     self.password = password
 
+  
   def __save_user(self):
     """ Save function for the new user's details"""
-    User.__save_user.append(self)
+    User.__save_user.append(self)  
   
-  def __delete_user(self):
-    """ Delete function to delete user's details"""
-    User.__delete_user.remove(self)
+  del user_details(self)
+  """ Delete function to delete user's details"""
+  
+  if __name__ == '__main__':
+    main()
 
-    

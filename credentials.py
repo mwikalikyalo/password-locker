@@ -1,3 +1,5 @@
+from user import User
+
 class Credentials:
   """ Documents the password details"""
   def __init__(self, page_name, username, password):
