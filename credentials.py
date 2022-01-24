@@ -11,8 +11,8 @@ class Credentials:
 
   def __save_credentials(self):
     """ Save function for the new credentials"""
-    Credentials.__save_credentials.append(self)
+    Credentials.credentials.append(self)
   
   def __delete_credentials(self):
     """ Delete function to delete unnecessary credentials"""
-    Credentials.__delete_credentials.remove(self)
+    Credentials.credentials.remove(self)
