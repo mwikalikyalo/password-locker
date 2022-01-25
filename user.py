@@ -13,7 +13,7 @@ class User:
   user_details=[]  
 
   
-  def __save_user(self):
+  def save_user(self):
     """ Save function for the new user's details"""
     User.user_details.append(self) 
 

@@ -9,10 +9,12 @@ class Credentials:
   
   credentials=[]
 
-  def __save_credentials(self):
+  def save_credentials(self):
     """ Save function for the new credentials"""
     Credentials.credentials.append(self)
   
-  def __delete_credentials(self):
+  def delete_credentials(self):
     """ Delete function to delete unnecessary credentials"""
     Credentials.credentials.remove(self)
+
+

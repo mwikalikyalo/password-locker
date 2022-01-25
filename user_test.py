@@ -1,5 +1,4 @@
 import unittest
-
 from pip import main
 from user import User
 
