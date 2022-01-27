@@ -38,37 +38,12 @@ def main():
     while True:
         print("Welcome to the Password Locker.")
         print('\n')
-        print("Use these prompts to select an option: Login to your account use 'P1': Create New User use 'P2': To exit password locker 'P4'")
-        prompt = input().lower()
+        print("Use these prompts to select an option: Create New User use 'P1': To exit password locker 'P3'")
+        prompt = input()
         print('\n')
 
-        #login into account user
-        if prompt == 'P1':
-            print('Enter username')
-            username = input()
-            print('Enter password')
-            password = input()
-
-            print('\n')
-
-            while username != 'tester' or password != '00000':
-                print("Wrong username or password. Username 'tester' and password '00000'")
-                print("Enter UserName")
-                username = input()
-
-                print("Enter Your password")
-                password = input()
-
-                print('\n')
-
-            if username == 'tester' and password == '12345':
-                print("YOU HAVE SUCCESSFULLY LOGGED IN!")
-                print('\n')
-                print("Select an option below to continue: Enter 1, 2, 3, 4 or 5")
-                print('\n')
-
         #create new user for password locker
-        if prompt == 'P2':
+        if prompt == 'P1':
             print("Create a Username")
             created_user_name = input()
 
@@ -171,18 +146,7 @@ def main():
                                 else:
                                   print("Please Enter a valid code")
                                 continue
-
-                    #logout
-                    elif selected == '5':
-                        print("WARNING! You will loose all your credentials if you log out. Are you sure? y/n")
-                        logout = input().lower()
-
-                        if logout == 'y':
-                            print("You have Successfully logged out")
-                            break
-                        elif logout == 'n':
-                            continue
-
+                            
                     #remove credentials   
                     elif selected == '3':
                         while True:
@@ -215,11 +179,15 @@ def main():
                             else:
                                 print("Please enter a valid code")
 
-                    else:
-                        print("Please enter a valid code")
-                        continue       
+                    #logout
+                    elif selected == '5':
+                        print("WARNING! You will loose all your credentials if you log out. Are you sure? y/n")
+                        logout = input().lower()
 
-        
-
+                        if logout == 'y':
+                            print("You have Successfully logged out")
+                            break
+                        elif logout == 'n':
+                            continue
 if __name__ == '__main__':
     main()

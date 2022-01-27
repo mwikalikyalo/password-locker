@@ -1,4 +1,5 @@
 import unittest
+
 from pip import main
 from user import User
 
@@ -23,6 +24,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_details), 1)
 
 if __name__=="__main__":
-    main()
+    unittest.main()
 
   

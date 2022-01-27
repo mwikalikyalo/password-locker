@@ -36,8 +36,8 @@ class TestUser(unittest.TestCase):
     """TestCase to test whether all contacts can be displayed"""
     self.assertEqual(Credentials.display_credentials(), Credentials.password_list)
   
-
-
+if __name__=="__main__":
+    unittest.main()
 
 
     
