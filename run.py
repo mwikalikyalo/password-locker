@@ -1,7 +1,5 @@
-from lib2to3.pygram import python_grammar_no_print_statement
 import random
 
-from click import prompt
 from user import User
 from credentials import Credentials
 
@@ -30,17 +28,47 @@ def delete_credentials(credentials):
     """Method that deletes credentials"""
     return Credentials.delete_credentials(credentials)
 
+def find_by_user_name(cls, user_name):
+    """Function checks whether the username provided by the username"""
+    return User.find_by_user_name(user_name)
+ 
+
 def main():
 
     while True:
         print("Welcome to the Password Locker.")
         print('\n')
-        print("Use these prompts to select an option: Create New User use 'P1': Login to your account use 'P2': Display accounts use 'P3' To exit password locker 'P4'")
+        print("Use these prompts to select an option: Login to your account use 'P1': Create New User use 'P2': To exit password locker 'P4'")
         prompt = input().lower()
         print('\n')
 
-        #create new user for password locker
+        #login into account user
         if prompt == 'P1':
+            print('Enter username')
+            username = input()
+            print('Enter password')
+            password = input()
+
+            print('\n')
+
+            while username != 'tester' or password != '00000':
+                print("Wrong username or password. Username 'tester' and password '00000'")
+                print("Enter UserName")
+                username = input()
+
+                print("Enter Your password")
+                password = input()
+
+                print('\n')
+
+            if username == 'tester' and password == '12345':
+                print("YOU HAVE SUCCESSFULLY LOGGED IN!")
+                print('\n')
+                print("Select an option below to continue: Enter 1, 2, 3, 4 or 5")
+                print('\n')
+
+        #create new user for password locker
+        if prompt == 'P2':
             print("Create a Username")
             created_user_name = input()
 
@@ -160,10 +188,38 @@ def main():
                         while True:
                             print("Search for credential to delete")
                             search_name = input()
-                            print("")
+                            print("Are you sure you want to delete the credential? y/n")
+                            remove = input().lower()
+                            if remove == 'y':
+                                print("You have Successfully removed the credential.")
+                                break
+                            elif remove == 'n':
+                                continue
 
-                           
+                    #search credentials
+                    elif selected == '4':
+                        while True:
+                            print("Continue? y/n")
+                            option2 = input().lower()
+                            if option2 == 'y':
+                                print("Enter an account name to find credentials")
+                                search_name = input()
 
+                                if find_credentials(search_name):
+                                    search_credential = find_credentials(search_name)
+                                    print(f"ACCOUNT NAME: {search_credential.page_name} \n PASSWORD: {search_credential.account_password}")
+                                else:
+                                    print("That Contact Does not exist")
+                            elif option2 == 'n':
+                                break
+                            else:
+                                print("Please enter a valid code")
+
+                    else:
+                        print("Please enter a valid code")
+                        continue       
+
+        
 
 if __name__ == '__main__':
     main()
