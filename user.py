@@ -22,14 +22,14 @@ class User:
   def find_by_user_name(cls, user_name):
     """Function checks whether the username provided by the username is available and if it is it returns the account"""
     for user in cls.user_details:
-            if User.username == user_name:
+            if user.username == user_name:
                 return user
 
   @classmethod
-  def account_exists(cls, user_name):
+  def user_exists(cls, user_name):
         """This function loops through the present array of accounts while searching for the username entered by the user and returns true/false"""
-        for account in cls.user_details:
-            if User.username == user_name:
+        for user in cls.user_details:
+            if user.username == user_name:
                 return True
         return False
 
