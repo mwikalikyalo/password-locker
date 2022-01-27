@@ -24,7 +24,12 @@ class Credentials:
             if credentials.username == name:
                 return True
         return False
+
+  def test_display_all_credentials(self):
+      """TestCase to test whether all contacts can be displayed"""
+      self.assertEqual(Credentials.display_credentials(), Credentials.password_list)
   
+
   
   
 
