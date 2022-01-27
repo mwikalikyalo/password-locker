@@ -39,8 +39,9 @@ def main():
         prompt = input().lower()
         print('\n')
 
+        #create new user for password locker
         if prompt == 'P1':
-            print("Create a UserName")
+            print("Create a Username")
             created_user_name = input()
 
             print("Select a Password")
@@ -65,11 +66,104 @@ def main():
                 entered_password = input()
 
             while entered_username != created_user_name or entered_password != created_user_password:
-                    print("You entered a wrong username or password")
-                    print("Username")
-                    entered_userName = input()
-                    print("Your Password")
-                    entered_password = input()
+                print("You entered a wrong username or password")
+                print("Username")
+                entered_userName = input()
+                print("Your Password")
+                entered_password = input()
+
+            #logged on section
             else:
-                    print(f"Welcome: {entered_userName} to your Account")
-                    print('\n')
+                print(f"Welcome: {entered_username} to your Account")
+                print('\n')
+                print("Select an option below to continue: ")
+                print('\n')
+                
+                while True:
+                    print("1: View Your saved credentials")
+                    print("2: Add new credentials")
+                    print("3: Remove credentials")
+                    print("4: Search credentials")
+                    print("5: Log Out")
+                    selected = input()
+
+                #add new credentials
+                    if selected == '2':
+                        while True:
+                            print("Continue to add? y/n")
+                            choice = input()
+                            if choice == 'y'or'Y':
+                                print("Enter The Account Name")
+                                page_name = input()
+                                print("Enter a password")
+                                print("To generate random password enter letter 'a' or 'c' to create your own password")
+                                letter = input().lower()
+                                if letter == 'a':
+                                    account_password = random.randint(111111, 1111111)
+                                    print(f"Account: {page_name}")
+                                    print(f"Password: {account_password}")
+                                    print('\n')
+                                elif letter == 'c':
+                                    print("Create your password")
+                                    account_password = input()
+                                    print(f"Account: {page_name}")
+                                    print(f"Password: {account_password}")
+                                    print('\n')
+                                else:
+                                    print("Please enter a valid Code")
+
+                                save_new_credential(create_new_credential(
+                                    page_name, account_password))
+                            elif choice == 'c':
+                                break
+                            else:
+                                print("Please use 'y' for yes or 'n' for no!")
+
+                    #display credentials
+                    elif selected == '1':
+                            while True:
+                                print("Below is a list of all your credentials")
+                                if display_credentials():
+
+                                  for credential in display_credentials():
+                                    print(f"PAGE NAME:{Credentials.page_name}")
+                                    print(f"PASSWORD:{Credentials.password}")
+
+                                else:
+                                  print('\n')
+                                  print("You don't seem to have any contacts yet")
+                                  print('\n')
+
+                                print("Back to Menu? y/n")
+                                back = input().lower()
+                                if back == 'y':
+                                  break
+                                elif back == 'n':
+                                  continue
+                                else:
+                                  print("Please Enter a valid code")
+                                continue
+
+                    #logout
+                    elif selected == '5':
+                        print("WARNING! You will loose all your credentials if you log out. Are you sure? y/n")
+                        logout = input().lower()
+
+                        if logout == 'y':
+                            print("You have Successfully logged out")
+                            break
+                        elif logout == 'n':
+                            continue
+
+                    #remove credentials   
+                    elif selected == '3':
+                        while True:
+                            print("Search for credential to delete")
+                            search_name = input()
+                            print("")
+
+                           
+
+
+if __name__ == '__main__':
+    main()
