@@ -4,6 +4,7 @@ from user import User
 
 class TestUser(unittest.TestCase):
   def __setup__(self):
+    """Set up method to run before each test cases."""
     self.new_user = User("Winnie Mwikali" , "mwiks" , "winnie7@gmail.com" , "kyalo00@")
 
 
