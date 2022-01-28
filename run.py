@@ -189,5 +189,11 @@ def main():
                             break
                         elif logout == 'n':
                             continue
+
+        #exit
+        elif prompt == "P3":
+            print('adios')
+            break
+
 if __name__ == '__main__':
     main()
